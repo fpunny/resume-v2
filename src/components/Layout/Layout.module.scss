@@ -1,0 +1,38 @@
+@use '../../styles/index';
+@use '../../styles/variables';
+
+.container {
+    padding: map-get(variables.$unit, section);
+    background-color: var(--color--background);
+    margin: map-get(variables.$unit, section);
+    height: map-get(variables.$page, height);
+    width: map-get(variables.$page, width);
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+
+    @media print {
+        margin: 0;
+    }
+}
+
+.side {
+    display: inline-block;
+    width: 40%;
+    b {
+        display: block;
+    }
+}
+
+.item {
+    padding-bottom: map-get(variables.$unit, component);
+}
+
+.content {
+    padding-left: map-get(variables.$unit, container);
+    padding-top: map-get(variables.$unit, break);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 60%;
+}

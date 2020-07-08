@@ -1,0 +1,44 @@
+@use './fonts';
+
+// These are just is as SCSS variables since they are static
+$font: (
+  primary: fonts.getFont(Avenir),
+  secondary: fonts.getFont(Avenir),
+);
+
+$page: (
+  height: 11in,
+  width: 8.5in,
+);
+
+$speed: (
+  page: 500ms,
+  slow: 300ms,
+  normal: 200ms,
+  fast: 100ms,
+);
+
+$ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+$unit: (
+  section: 2.5rem,
+  container: 2rem,
+  component: 1.5rem,
+  element: 1.1rem,
+  break: 0.75rem,
+  tad: 0.4rem,
+);
+
+$text: (
+  heading: 2.2rem,
+  large: 1.5rem,
+  larger: 1.1rem,
+  normal: 1rem,
+  smaller: 0.9rem,
+  small: 0.8rem,
+);
+
+$media: (
+  tablet: 850px,
+  phone: 500px,
+);

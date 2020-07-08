@@ -1,0 +1,47 @@
+$_text: #333333;
+
+$colors: (
+  background: #ffffff,
+  primary: #41c2c9,
+  heading:$_text,
+  text: lighten($_text, 25%),
+);
+
+$dark_colors: (
+);
+
+// Generate all the interaction variants of the color
+$_colors: ();
+$_dark_colors: ();
+
+@function _color_generator($tag, $color) {
+  @return (
+    #{$tag}: $color,
+    #{$tag}-hover: darken($color, 8%),
+    #{$tag}-active: darken($color, 16%),
+    #{$tag}-high: rgba($color, 8%),
+    #{$tag}-high-active: rgba($color, 16%),
+  );
+}
+@each $tag, $val in $colors {
+  $_colors: map-merge($_colors, _color_generator($tag, $val));
+}
+@each $tag, $val in $dark_colors {
+  $_dark_colors: map-merge($_dark_colors, _color_generator($tag, $val));
+}
+
+@mixin load {
+    :root {
+      --shadow: 0 0 1rem #{rgba(black, 0.02)};
+      @each $tag, $val in $_colors {
+        --color--#{$tag}: #{$val};
+      }
+    }
+  
+    :global(.dark) {
+      --shadow: 0 0 1rem #{rgba(white, 0.02)};
+      @each $tag, $val in $_dark_colors {
+        --color--#{$tag}: #{$val};
+      }
+    }
+  }

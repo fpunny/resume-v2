@@ -1,0 +1,39 @@
+@use './variables';
+@use './colors';
+@use './fonts';
+
+@include colors.load;
+@include fonts.load;
+
+@page {
+    size: letter portrait;
+    margin: 0;
+}
+
+body {
+    font-family: map-get(variables.$font, secondary);
+    background-color: var(--color--background-hover);
+    -webkit-print-color-adjust: exact;
+    color: var(--color--text);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: map-get(variables.$font, primary);
+    color: var(--color--primary);
+    margin: 0;
+}
+
+:global {
+    .container {
+        box-sizing: border-box;
+    }
+
+    .title {
+        margin-bottom: map-get(variables.$unit, tad);
+        font-size: map-get(variables.$text, large);
+    }
+}

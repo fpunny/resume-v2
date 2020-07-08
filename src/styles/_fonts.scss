@@ -1,0 +1,56 @@
+$_font-config: (
+  Avenir: (
+    fallback: sans-serif,
+    sources: (
+      (
+        style: normal,
+        weight: normal,
+        source: (
+          embedded-opentype: url('/fonts/Avenir-Light.eot'),
+          truetype: url('/fonts/Avenir-Light.ttf'),
+          woff2: url('/fonts/Avenir-Light.woff2'),
+          woff: url('/fonts/Avenir-Light.woff'),
+          svg: url('/fonts/Avenir-Light.svg'),
+        ),
+      ),
+      (
+        style: normal,
+        weight: bold,
+        source: (
+          embedded-opentype: url('/fonts/Avenir-Medium.eot'),
+          truetype: url('/fonts/Avenir-Medium.ttf'),
+          woff2: url('/fonts/Avenir-Medium.woff2'),
+          woff: url('/fonts/Avenir-Medium.woff'),
+          svg: url('/fonts/Avenir-Medium.svg'),
+        ),
+      ),
+    ),
+  ),
+);
+
+@function _load($sources) {
+  $res: '';
+  @each $type, $url in map-get($sources, source) {
+    $res: #{$res} #{if($res == '', '', ',')}$url format('#{$type}');
+  }
+  @return $res;
+}
+
+@mixin load {
+  @each $tag, $config in $_font-config {
+    @each $source in map-get($config, sources) {
+      @font-face {
+        font-weight: map-get($source, weight);
+        font-style: map-get($source, style);
+        font-family: '#{$tag}';
+        src: _load($source);
+        font-display: swap;
+      }
+    }
+  }
+}
+
+@function getFont($name) {
+  $config: map-get($_font-config, $name);
+  @return "#{$name}", #{map-get($config, fallback)};
+}
