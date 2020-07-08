@@ -1,20 +1,29 @@
-@use '../../styles/index';
 @use '../../styles/variables';
+@use '../../styles/index';
 
 .container {
+    background-color: var(--color--background-hover);
+    min-height: map-get(variables.$page, height);
+    min-width: map-get(variables.$page, width);
+    padding: map-get(variables.$unit, section);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    @media print {
+        padding: 0;
+    }
+}
+
+.body {
     padding: map-get(variables.$unit, section);
     background-color: var(--color--background);
-    margin: map-get(variables.$unit, section);
     height: map-get(variables.$page, height);
     width: map-get(variables.$page, width);
     box-shadow: var(--shadow);
     box-sizing: border-box;
     flex-wrap: wrap;
     display: flex;
-
-    @media print {
-        margin: 0;
-    }
 }
 
 .side {

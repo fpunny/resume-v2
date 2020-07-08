@@ -26,6 +26,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -36,9 +42,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        cssLoaderOptions: {
-          camelCase: false,
-        },
+        cssLoaderOptions: Object.assign(
+          {
+            camelCase: false,
+          },
+          process.env.NODE_ENV === `production` && {
+            localIdentName: `[hash:base32:4]`
+          },
+        ),
       },
     },
   ],

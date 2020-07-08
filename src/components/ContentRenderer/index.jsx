@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { graphql } from 'gatsby';
-import dateFormat from '../../dateFormat';
+import dateFormat from '../../utils/dateFormat';
 import MDRenderer from '../MDRenderer';
 import styles from './ContentRenderer.module.scss';
 

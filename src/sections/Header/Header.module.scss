@@ -26,12 +26,12 @@
 .link {
     @include mixins.transition(background-color);
     border-radius: map-get(variables.$unit, tad);
-    padding: map-get(variables.$unit, tad);
+    padding: map-get(variables.$unit, tad) map-get(variables.$unit, break);
     text-decoration: none;
+    display: inline-flex;
     align-items: center;
     font-weight: bold;
     color: inherit;
-    display: flex;
 
     &:hover, &:focus {
         background-color: var(--color--primary-high);

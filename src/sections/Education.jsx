@@ -9,7 +9,7 @@ export default function Education() {
     return (
         <section className='container'>
             <h2 className='title'>{data.title}</h2>
-            {data.content.map(props => <ContentRenderer dateConfig={dateConfig} { ...props }/>)}
+            {data.content.map((props, i) => <ContentRenderer dateConfig={dateConfig} key={i} { ...props }/>)}
         </section>
     );
 }

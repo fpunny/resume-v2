@@ -12,12 +12,8 @@
 
 body {
     font-family: map-get(variables.$font, secondary);
-    background-color: var(--color--background-hover);
     -webkit-print-color-adjust: exact;
     color: var(--color--text);
-    justify-content: center;
-    align-items: center;
-    display: flex;
     margin: 0;
 }
 

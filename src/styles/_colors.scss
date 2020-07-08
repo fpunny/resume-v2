@@ -8,38 +8,41 @@ $colors: (
 );
 
 $dark_colors: (
+  background: #252525,
+  heading: invert(map-get($colors, heading)),
+  text: invert(map-get($colors, text)),
 );
 
 // Generate all the interaction variants of the color
 $_colors: ();
 $_dark_colors: ();
 
-@function _color_generator($tag, $color) {
+@function _color_generator($tag, $color, $func) {
   @return (
     #{$tag}: $color,
-    #{$tag}-hover: darken($color, 8%),
-    #{$tag}-active: darken($color, 16%),
+    #{$tag}-hover: call(get-function($func), $color, 8%),
+    #{$tag}-active: call(get-function($func), $color, 16%),
     #{$tag}-high: rgba($color, 8%),
     #{$tag}-high-active: rgba($color, 16%),
   );
 }
 @each $tag, $val in $colors {
-  $_colors: map-merge($_colors, _color_generator($tag, $val));
+  $_colors: map-merge($_colors, _color_generator($tag, $val, darken));
 }
 @each $tag, $val in $dark_colors {
-  $_dark_colors: map-merge($_dark_colors, _color_generator($tag, $val));
+  $_dark_colors: map-merge($_dark_colors, _color_generator($tag, $val, lighten));
 }
 
 @mixin load {
     :root {
-      --shadow: 0 0 1rem #{rgba(black, 0.02)};
+      --shadow: 0 0 1rem #{rgba(black, 0.1)};
       @each $tag, $val in $_colors {
         --color--#{$tag}: #{$val};
       }
     }
   
     :global(.dark) {
-      --shadow: 0 0 1rem #{rgba(white, 0.02)};
+      --shadow: 0 0 1rem #{rgba(white, 0.1)};
       @each $tag, $val in $_dark_colors {
         --color--#{$tag}: #{$val};
       }
