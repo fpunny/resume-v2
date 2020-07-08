@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
 import { navigate } from "gatsby"
 
 export default function () {
-  navigate('/');
+  useEffect(() => {
+    navigate('/');
+  }, []);
   return null;
 }
