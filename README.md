@@ -28,8 +28,7 @@ A resume created using React inspired by a HTML based template, [https://github.
  - Save the PDF and you're done! :D
 
 ## Improvements from v1
- - Uses contentful for querying data so that it's completely handfree (or until I get an itch)
+ - Uses contentful for querying data so that it's completely handfree (or until I get an itch), and can auto deploy to netlify when data is updated
  - Each section is modular and more or less a "mini ecosystem", with the exception of some repeated styles
  - Following best practices of separating content from layout, it further helps separate data from the resume
- - Deploying and hosting on github pages instead since netlify is starting to have what I can "first-time-in-awhile" paint delays
  - You can check out v1 [here](https://github.com/fpunny/resume)
