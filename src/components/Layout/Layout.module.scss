@@ -3,14 +3,10 @@
 @use '../../styles/index';
 
 .container {
-    @include mixins.transition(background-color);
-    background-color: var(--color--background-hover);
-    min-height: map-get(variables.$page, height);
-    min-width: map-get(variables.$page, width);
     padding: map-get(variables.$unit, section);
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    height: map-get(variables.$page, height);
+    width: map-get(variables.$page, width);
+    margin: 0 auto;
 
     @media print {
         padding: 0;
@@ -19,13 +15,14 @@
 
 .body {
     @include mixins.transition(background-color);
+    min-height: map-get(variables.$page, height);
+    min-width: map-get(variables.$page, width);
     padding: map-get(variables.$unit, section);
     background-color: var(--color--background);
-    height: map-get(variables.$page, height);
-    width: map-get(variables.$page, width);
     box-shadow: var(--shadow);
     box-sizing: border-box;
     flex-wrap: wrap;
+    margin: 0 auto;
     display: flex;
 }
 

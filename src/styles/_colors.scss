@@ -23,8 +23,8 @@ $_dark_colors: ();
     #{$tag}: $color,
     #{$tag}-hover: call(get-function($func), $color, 8%),
     #{$tag}-active: call(get-function($func), $color, 16%),
-    #{$tag}-high: mix($base, $color, 82%),
-    #{$tag}-high-active: mix($base, $color, 78%),
+    #{$tag}-high: mix($base, $color, 95%),
+    #{$tag}-high-active: mix($base, $color, 90%),
   );
 }
 @each $tag, $val in $colors {

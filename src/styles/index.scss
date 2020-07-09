@@ -12,6 +12,8 @@
 }
 
 body {
+    @include mixins.transition(background-color);
+    background-color: var(--color--background-hover);
     font-family: map-get(variables.$font, secondary);
     -webkit-print-color-adjust: exact;
     color: var(--color--text);
