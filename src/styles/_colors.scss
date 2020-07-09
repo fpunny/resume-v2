@@ -9,6 +9,7 @@ $colors: (
 
 $dark_colors: (
   background: #252525,
+  primary: #41c2c9,
   heading: invert(map-get($colors, heading)),
   text: invert(map-get($colors, text)),
 );
@@ -17,20 +18,20 @@ $dark_colors: (
 $_colors: ();
 $_dark_colors: ();
 
-@function _color_generator($tag, $color, $func) {
+@function _color_generator($tag, $color, $func, $base) {
   @return (
     #{$tag}: $color,
     #{$tag}-hover: call(get-function($func), $color, 8%),
     #{$tag}-active: call(get-function($func), $color, 16%),
-    #{$tag}-high: rgba($color, 8%),
-    #{$tag}-high-active: rgba($color, 16%),
+    #{$tag}-high: mix($base, $color, 82%),
+    #{$tag}-high-active: mix($base, $color, 78%),
   );
 }
 @each $tag, $val in $colors {
-  $_colors: map-merge($_colors, _color_generator($tag, $val, darken));
+  $_colors: map-merge($_colors, _color_generator($tag, $val, darken, map-get($colors, background)));
 }
 @each $tag, $val in $dark_colors {
-  $_dark_colors: map-merge($_dark_colors, _color_generator($tag, $val, lighten));
+  $_dark_colors: map-merge($_dark_colors, _color_generator($tag, $val, lighten, map-get($dark_colors, background)));
 }
 
 @mixin load {
