@@ -30,7 +30,9 @@
     // Attribute with custom props
   } @else if type-of($attr) == map {
     $speed: if(map-has-key($attr, speed), map-get($attr, speed), $speed);
-    $res: map-get($attr, name) map-get(variables.$speed, $speed) variables.$ease;
+    $res: map-get($attr, name)
+      map-get(variables.$speed, $speed)
+      variables.$ease;
   }
 
   @return $res;

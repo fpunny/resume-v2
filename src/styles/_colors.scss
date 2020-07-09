@@ -3,7 +3,7 @@ $_text: #333333;
 $colors: (
   background: #ffffff,
   primary: #41c2c9,
-  heading:$_text,
+  heading: $_text,
   text: lighten($_text, 25%),
 );
 
@@ -24,27 +24,38 @@ $_dark_colors: ();
     #{$tag}-hover: call(get-function($func), $color, 8%),
     #{$tag}-active: call(get-function($func), $color, 16%),
     #{$tag}-high: mix($base, $color, 95%),
-    #{$tag}-high-active: mix($base, $color, 90%),
+    #{$tag}-high-active: mix($base, $color, 90%)
   );
 }
 @each $tag, $val in $colors {
-  $_colors: map-merge($_colors, _color_generator($tag, $val, darken, map-get($colors, background)));
+  $_colors: map-merge(
+    $_colors,
+    _color_generator($tag, $val, darken, map-get($colors, background))
+  );
 }
 @each $tag, $val in $dark_colors {
-  $_dark_colors: map-merge($_dark_colors, _color_generator($tag, $val, lighten, map-get($dark_colors, background)));
+  $_dark_colors: map-merge(
+    $_dark_colors,
+    _color_generator($tag, $val, lighten, map-get($dark_colors, background))
+  );
 }
 
 @mixin load {
-    :root {
-      --shadow: 0 0 1rem #{rgba(black, 0.1)};
-      @each $tag, $val in $_colors {
-        --color--#{$tag}: #{$val};
-      }
-    }
-  
-    :global(.dark) {
-      @each $tag, $val in $_dark_colors {
-        --color--#{$tag}: #{$val};
-      }
+  :root {
+    --shadow: 0 0 1rem #{rgba(black, 0.1)};
+    @each $tag, $val in $_colors {
+      --color--#{$tag}: #{$val};
     }
   }
+
+  :global(.dark) {
+    @each $tag, $val in $_dark_colors {
+      --color--#{$tag}: #{$val};
+    }
+  }
+}
+
+:export {
+  primary: map-get($colors, primary),
+  background: map-get($colors, background),
+}

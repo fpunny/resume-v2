@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import Education from "../sections/Education";
-import Projects from "../sections/Projects";
-import Layout from "../components/Layout";
-import Header from "../sections/Header";
-import Skills from "../sections/Skills";
-import Menu from "../components/Menu";
-import Work from "../sections/Work";
+import Education from '../sections/Education';
+import Projects from '../sections/Projects';
+import Layout from '../components/Layout';
+import Header from '../sections/Header';
+import Skills from '../sections/Skills';
+import Menu from '../components/Menu';
+import Work from '../sections/Work';
 import Seo from '../components/Seo';
 
-export const darkContext = React.createContext({ get: false, set() { } });
+export const darkContext = React.createContext({ get: false, set() {} });
 export default function IndexPage() {
   const [dark, setDark] = useState();
   useEffect(() => setDark(localStorage.getItem('dark_mode') === 'true'), []);
@@ -22,19 +22,29 @@ export default function IndexPage() {
       document.body.classList.remove('dark');
       localStorage.setItem('dark_mode', false);
     }
-  }, [ dark ]);
+  }, [dark]);
   const { site } = useStaticQuery(query);
 
   return (
     <darkContext.Provider value={{ get: dark, set: setDark }}>
       <Seo title={site.siteMetadata.author} />
       <Helmet>
-        <link rel='preload' as='font' type='font/woff2' href='/fonts/Avenir-Medium.woff2' />
-        <link rel='preload' as='font' type='font/woff2' href='/fonts/Avenir-Light.woff2' />
+        <link
+          rel='preload'
+          as='font'
+          type='font/woff2'
+          href='/fonts/Avenir-Medium.woff2'
+        />
+        <link
+          rel='preload'
+          as='font'
+          type='font/woff2'
+          href='/fonts/Avenir-Light.woff2'
+        />
       </Helmet>
       <Layout
         seo={{
-          title: site.siteMetadata.author
+          title: site.siteMetadata.author,
         }}
         header={<Header />}
         education={<Education />}
@@ -42,17 +52,17 @@ export default function IndexPage() {
         skills={<Skills />}
         work={<Work />}
       />
-      <Menu/>
+      <Menu />
     </darkContext.Provider>
   );
 }
 
 const query = graphql`
-{
-  site {
-    siteMetadata {
-      author
+  {
+    site {
+      siteMetadata {
+        author
+      }
     }
   }
-}
 `;

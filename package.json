@@ -33,7 +33,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "lint": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "prettier --write \"**/*.{js,jsx,json,scss}\"",
     "start": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",

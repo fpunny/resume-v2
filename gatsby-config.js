@@ -19,8 +19,8 @@ module.exports = {
         name: `frederic-pun-resume`,
         short_name: `fpunny-resume`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ffffff`,
+        theme_color: `#41c2c9`,
         display: `minimal-ui`,
         icon: `src/logo.svg`,
       },
@@ -28,7 +28,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
     {
@@ -47,10 +47,10 @@ module.exports = {
             camelCase: false,
           },
           process.env.NODE_ENV === `production` && {
-            localIdentName: `[hash:base32:4]`
+            localIdentName: `[hash:base32:4]`,
           },
         ),
       },
     },
   ],
-}
+};

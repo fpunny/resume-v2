@@ -1,19 +1,19 @@
 @use '../../styles/variables';
 
 .md {
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        margin-bottom: map-get(variables.$unit, break) * -1;
-    }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: map-get(variables.$unit, break) * -1;
+  }
 
-    p {
-        margin-bottom: map-get(variables.$unit, break);
-        margin-top: 0;
-    }
+  p {
+    margin-bottom: map-get(variables.$unit, break);
+    margin-top: 0;
+  }
 
-    b {
-        color: var(--color--heading);
-    }
+  b {
+    color: var(--color--heading);
+  }
 }

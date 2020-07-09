@@ -7,36 +7,48 @@
 @include fonts.load;
 
 @page {
-    size: letter portrait;
-    margin: 0;
+  size: letter portrait;
+  margin: 0;
 }
 
 body {
-    @include mixins.transition(background-color);
-    background-color: var(--color--background-hover);
-    font-family: map-get(variables.$font, secondary);
-    -webkit-print-color-adjust: exact;
-    color: var(--color--text);
-    margin: 0;
+  @include mixins.transition(background-color);
+  background-color: var(--color--background-hover);
+  font-family: map-get(variables.$font, secondary);
+  -webkit-print-color-adjust: exact;
+  color: var(--color--text);
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: map-get(variables.$font, primary);
-    color: var(--color--primary);
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: map-get(variables.$font, primary);
+  color: var(--color--primary);
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, span {
-    @include mixins.transition(color);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  @include mixins.transition(color);
 }
 
 :global {
-    .container {
-        box-sizing: border-box;
-    }
+  .container {
+    box-sizing: border-box;
+  }
 
-    .title {
-        margin-bottom: map-get(variables.$unit, tad);
-        font-size: map-get(variables.$text, large);
-    }
+  .title {
+    margin-bottom: map-get(variables.$unit, tad);
+    font-size: map-get(variables.$text, large);
+  }
 }

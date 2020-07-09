@@ -48,5 +48,5 @@ $_font-config: (
 
 @function getFont($name) {
   $config: map-get($_font-config, $name);
-  @return "#{$name}", #{map-get($config, fallback)};
+  @return '#{$name}', #{map-get($config, fallback)};
 }

@@ -2,54 +2,55 @@
 @use '../../styles/mixins';
 
 .portal {
-    @include mixins.position(fixed, auto);
-    margin-right: map-get(variables.$unit, element);
-    margin-bottom: map-get(variables.$unit, tad);
-    left: auto;
-    top: auto;
+  @include mixins.position(fixed, auto);
+  margin-right: map-get(variables.$unit, element);
+  margin-bottom: map-get(variables.$unit, tad);
+  left: auto;
+  top: auto;
 
-    @media print {
-        display: none;
-    }
+  @media print {
+    display: none;
+  }
 }
 
 .button {
-    @include mixins.transition(background-color color);
-    margin-bottom: map-get(variables.$unit, break);
-    background-color: var(--color--background);
-    padding: map-get(variables.$unit, break);
-    color: var(--color--heading);
-    box-shadow: var(--shadow);
-    justify-content: center;
-    border-radius: 999px;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    border: none;
+  @include mixins.transition(background-color color);
+  margin-bottom: map-get(variables.$unit, break);
+  background-color: var(--color--background);
+  padding: map-get(variables.$unit, break);
+  color: var(--color--heading);
+  box-shadow: var(--shadow);
+  justify-content: center;
+  border-radius: 999px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  border: none;
 
-    &:hover, &:focus {
-        background-color: var(--color--primary-high);
-        color: var(--color--primary);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(--color--primary-high);
+    color: var(--color--primary);
+  }
 
-    &:active {
-        background-color: var(--color--primary-high-active);
-        color: var(--color--primary-hover);
-    }
+  &:active {
+    background-color: var(--color--primary-high-active);
+    color: var(--color--primary-hover);
+  }
 }
 
 .icon {
-    @include mixins.transition(opacity);
-    height: map-get(variables.$text, larger);
-    width: map-get(variables.$text, larger);
+  @include mixins.transition(opacity);
+  height: map-get(variables.$text, larger);
+  width: map-get(variables.$text, larger);
 
-    &--abs {
-        @include mixins.position(absolute);
-    }
+  &--abs {
+    @include mixins.position(absolute);
+  }
 
-    &--hidden {
-        opacity: 0;
-    }
+  &--hidden {
+    opacity: 0;
+  }
 }

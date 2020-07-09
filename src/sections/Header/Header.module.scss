@@ -2,50 +2,53 @@
 @use '../../styles/mixins';
 
 .title {
-    font-size: map-get(variables.$text, heading);
+  font-size: map-get(variables.$text, heading);
 }
 
-.blurb, .title, .items {
-    margin: 0;
+.blurb,
+.title,
+.items {
+  margin: 0;
 }
 
 .items {
-    margin-right: -1 * map-get(variables.$unit, component);
-    font-size: map-get(variables.$text, small);
-    margin-top: map-get(variables.$unit, tad);
-    list-style-type: none;
-    padding: 0;
+  margin-right: -1 * map-get(variables.$unit, component);
+  font-size: map-get(variables.$text, small);
+  margin-top: map-get(variables.$unit, tad);
+  list-style-type: none;
+  padding: 0;
 }
 
 .item {
-    padding-right: map-get(variables.$unit, component);
-    color: var(--color--text);
-    box-sizing: border-box;
+  padding-right: map-get(variables.$unit, component);
+  color: var(--color--text);
+  box-sizing: border-box;
 }
 
 .link {
-    @include mixins.transition(background-color);
-    border-radius: map-get(variables.$unit, tad);
-    padding: map-get(variables.$unit, tad) map-get(variables.$unit, break);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    font-weight: bold;
-    color: inherit;
+  @include mixins.transition(background-color);
+  border-radius: map-get(variables.$unit, tad);
+  padding: map-get(variables.$unit, tad) map-get(variables.$unit, break);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  color: inherit;
 
-    &:hover, &:focus {
-        background-color: var(--color--text-high);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(--color--text-high);
+  }
 
-    &:active {
-        background-color: var(--color--text-high-active);
-    }
+  &:active {
+    background-color: var(--color--text-high-active);
+  }
 }
 
 .icon {
-    margin-right: map-get(variables.$unit, element);
-    width: map-get(variables.$text, normal);
-    color: var(--color--primary);
-    flex-shrink: 0;
-    height: auto;
+  margin-right: map-get(variables.$unit, element);
+  width: map-get(variables.$text, normal);
+  color: var(--color--primary);
+  flex-shrink: 0;
+  height: auto;
 }

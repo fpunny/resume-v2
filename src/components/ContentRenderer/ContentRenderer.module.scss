@@ -1,37 +1,39 @@
 @use '../../styles/variables';
 
 .header {
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
 }
 
-.dates, .title, .subtitle {
-    margin: 0;
+.dates,
+.title,
+.subtitle {
+  margin: 0;
 }
 
 .title {
-    font-size: map-get(variables.$text, normal) !important;
-    margin-right: auto;
+  font-size: map-get(variables.$text, normal) !important;
+  margin-right: auto;
 }
 
 .dates {
-    margin-bottom: map-get(variables.$unit, tad);
-    font-size: map-get(variables.$text, small);
-    font-weight: bold;
-    text-align: end;
+  margin-bottom: map-get(variables.$unit, tad);
+  font-size: map-get(variables.$text, small);
+  font-weight: bold;
+  text-align: end;
 }
 
 .subtitle {
-    margin-top: map-get(variables.$unit, tad) * -1;
-    margin-bottom: map-get(variables.$unit, tad);
-    font-size: map-get(variables.$text, smaller);
-    color: var(--color--heading);
-    font-weight: bold;
+  margin-top: map-get(variables.$unit, tad) * -1;
+  margin-bottom: map-get(variables.$unit, tad);
+  font-size: map-get(variables.$text, smaller);
+  color: var(--color--heading);
+  font-weight: bold;
 }
 
 .md {
-    ul {
-        font-size: map-get(variables.$text, smaller);
-        margin-bottom: map-get(variables.$unit, element);
-    }
+  ul {
+    font-size: map-get(variables.$text, smaller);
+    margin-bottom: map-get(variables.$unit, element);
+  }
 }
