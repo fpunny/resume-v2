@@ -1,4 +1,5 @@
 @use './variables';
+@use './mixins';
 @use './colors';
 @use './fonts';
 
@@ -21,6 +22,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: map-get(variables.$font, primary);
     color: var(--color--primary);
     margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    @include mixins.transition(color);
 }
 
 :global {

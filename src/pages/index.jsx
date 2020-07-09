@@ -13,12 +13,14 @@ import Seo from '../components/Seo';
 export const darkContext = React.createContext({ get: false, set() { } });
 export default function IndexPage() {
   const [dark, setDark] = useState();
-  useEffect(() => setDark(localStorage.getItem('dark_mode')), []);
+  useEffect(() => setDark(localStorage.getItem('dark_mode') === 'true'), []);
   useEffect(() => {
     if (dark) {
       document.body.classList.add('dark');
+      localStorage.setItem('dark_mode', true);
     } else {
       document.body.classList.remove('dark');
+      localStorage.setItem('dark_mode', false);
     }
   }, [ dark ]);
   const { site } = useStaticQuery(query);

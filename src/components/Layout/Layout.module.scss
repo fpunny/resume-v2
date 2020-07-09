@@ -1,7 +1,9 @@
 @use '../../styles/variables';
+@use '../../styles/mixins';
 @use '../../styles/index';
 
 .container {
+    @include mixins.transition(background-color);
     background-color: var(--color--background-hover);
     min-height: map-get(variables.$page, height);
     min-width: map-get(variables.$page, width);
@@ -16,6 +18,7 @@
 }
 
 .body {
+    @include mixins.transition(background-color);
     padding: map-get(variables.$unit, section);
     background-color: var(--color--background);
     height: map-get(variables.$page, height);

@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
-import { darkContext } from '../../pages';
+import React from 'react';
 import styles from './Layout.module.scss';
 
 export default function Layout({ header, education, skills, work, projects }) {
-    const dark = useContext(darkContext);
     return (
         <main className={styles.container}>
             <div className={styles.body}>

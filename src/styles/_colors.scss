@@ -42,7 +42,6 @@ $_dark_colors: ();
     }
   
     :global(.dark) {
-      --shadow: 0 0 1rem #{rgba(white, 0.1)};
       @each $tag, $val in $_dark_colors {
         --color--#{$tag}: #{$val};
       }

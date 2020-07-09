@@ -3,11 +3,8 @@
 
 .portal {
     @include mixins.position(fixed, auto);
-    margin-bottom: map-get(variables.$unit, element);
     margin-right: map-get(variables.$unit, element);
-    background-color: var(--color--background);
-    box-shadow: var(--shadow);
-    border-radius: 999px;
+    margin-bottom: map-get(variables.$unit, tad);
     left: auto;
     top: auto;
 
@@ -18,11 +15,15 @@
 
 .button {
     @include mixins.transition(background-color color);
+    margin-bottom: map-get(variables.$unit, break);
     background-color: var(--color--background);
     padding: map-get(variables.$unit, break);
+    color: var(--color--heading);
+    box-shadow: var(--shadow);
     justify-content: center;
     border-radius: 999px;
     align-items: center;
+    position: relative;
     cursor: pointer;
     outline: none;
     display: flex;
@@ -40,6 +41,15 @@
 }
 
 .icon {
+    @include mixins.transition(opacity);
     height: map-get(variables.$text, larger);
     width: map-get(variables.$text, larger);
+
+    &--abs {
+        @include mixins.position(absolute);
+    }
+
+    &--hidden {
+        opacity: 0;
+    }
 }
