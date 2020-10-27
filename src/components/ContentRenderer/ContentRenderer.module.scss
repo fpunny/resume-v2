@@ -1,7 +1,6 @@
 @use '../../styles/variables';
 
 .header {
-  align-items: center;
   display: flex;
 }
 
@@ -13,14 +12,16 @@
 
 .title {
   font-size: map-get(variables.$text, normal) !important;
+  padding-right: map-get(variables.$unit, container);
   margin-right: auto;
 }
 
 .dates {
-  margin-bottom: map-get(variables.$unit, tad);
+  margin: map-get(variables.$unit, tad) / 2 0 map-get(variables.$unit, tad);
   font-size: map-get(variables.$text, small);
   font-weight: bold;
   text-align: end;
+  flex-shrink: 0;
 }
 
 .subtitle {

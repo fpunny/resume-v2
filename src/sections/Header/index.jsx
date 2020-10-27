@@ -6,6 +6,7 @@ import styles from './Header.module.scss';
 
 export default function Header() {
   const { site, media } = useStaticQuery(query);
+  console.log(media);
   return (
     <header className={classnames(styles.container, 'container')}>
       <div className={styles.head}>
@@ -43,7 +44,7 @@ const query = graphql`
         blurb
       }
     }
-    media: contentfulQuerable(slug: { eq: "contact-info" }) {
+    media: contentfulQuerable(slug: { eq: "contact-info-247studios" }) {
       content {
         ...Link
       }
